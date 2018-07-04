@@ -1,0 +1,71 @@
+<style lang="less">
+  .navBar{
+    height: 88rpx;
+    width: 750rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    border-top: 1rpx solid #aaa;
+    border-bottom: 1rpx solid #aaa;
+  }
+  .boxes{
+    width:300%;
+    height: 100%;
+    display: flex;
+    padding-left: 62rpx;
+  }
+
+  .box {
+    margin-right: 99rpx;
+  }
+
+  .active{
+    color:#F85873;
+    border-bottom: 8rpx solid #F85873;
+  }
+</style>
+
+<template>
+  <scroll-view scroll-x class="navBar">
+    <view class="boxes" >
+      <block wx:for-items="{{list}}"
+             wx:for-item="item"
+             wx:key="index">
+        <view class="box {{index == idx ? 'active' : ''}}"
+              data-id="{{index}}"
+              @tap="onclick">
+          <text class="txt">{{item}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class navBar extends wepy.page {
+    components = {};
+
+    data = {
+      list: [
+        '全部', '待付款', '待发货', '已发货', '待签收', '全部', '待付款',
+        '待发货', '已发货', '待签收', '待发货', '已发货', '待签收'
+      ],
+      w: '',
+      idx: 0
+    };
+
+    computed = {};
+
+    methods = {
+      onclick(e) {
+        this.idx = e.currentTarget.dataset.id
+      }
+    };
+
+    events = {};
+
+    onLoad() {
+    }
+  }
+</script>

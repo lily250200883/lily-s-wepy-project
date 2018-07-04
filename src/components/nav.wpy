@@ -1,0 +1,61 @@
+<style lang="less">
+  .b{
+    border: 1px solid red;
+  }
+  .nav{
+    display: flex;
+    width: 320rpx;
+    height: 60rpx;
+    border:1rpx solid #F85873;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+  .nav>text{
+    width: 50%;
+    text-align: center;
+    vertical-align: center;
+    line-height:60rpx;
+    font-size: 30rpx;
+  }
+  .fill{
+    background-color: #F85873;
+    color:#fff;
+  }
+  .light{
+    background-color: #fff;
+    color:#F85873;
+  }
+</style>
+
+<template>
+    <view class="nav">
+      <text class=""  style="{{back1}}" @tap="change1">线上订单</text>
+      <text class=""  style="{{back2}}" @tap="change2">门店消费</text>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+export default class Nav extends wepy.component {
+    data = {
+      back1: 'background-color:#fff;color:#F85873',
+      back2: 'background-color:#F85873;color:#fff'
+    };
+
+    methods = {
+      change1() {
+        this.back1 = 'background-color:#F85873;color:#fff'
+        this.back2 = 'background-color:#fff;color:#F85873'
+      },
+      change2: function() {
+        this.back1 = 'background-color:#fff;color:#F85873'
+        this.back2 = 'background-color:#F85873;color:#fff'
+      }
+    };
+
+    onLoad() {
+
+    }
+  }
+</script>

@@ -1,0 +1,150 @@
+<style lang="less" xmlns="">
+  .lily-list{
+    display: flex;
+    width: 100%;
+    height:161rpx;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+
+  }
+  .c{
+    width: 90%;
+    border: 1px solid blue;
+  }
+  text{
+    font-size: 26rpx;
+  }
+  .right-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 63%;
+    height: 99rpx;
+  }
+  .t{
+    font-size: 30rpx;
+  }
+  .text{
+    color:#aaa;
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-img{
+    width: 176rpx;
+    height: 99rpx;
+    margin:30rpx 30rpx 32rpx 32rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+  }
+  image{
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<template>
+  <view scroll-y
+               class="lily-list"
+               wx:for-items="{{list}}"
+               wx:for-index="index"
+               wx:for-item="item"
+               wx:key="id">
+
+    <view class="left-img">
+      <image src="{{item.img}}"></image>
+    </view>
+
+    <view class="right-text">
+      <text class="t">{{item.title}}</text>
+      <view class="text">
+        <text>{{item.time}}</text>
+        <text>{{item.date}}</text>
+      </view>
+    </view>
+
+  </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class lilyList extends wepy.component {
+    data = {
+      list: [
+        {
+          img: '../img/1.jpg',
+          title: '孕前用补钙和维生素吗？',
+          time: '于今晚 21:30 开课',
+          date: '12月18日'
+        },
+        {
+          img: '../img/2.jpg',
+          title: '孕期保持身材的七条黄金法则',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        },
+        {
+          img: '../img/3.jpg',
+          title: '你的孩子健康吗？',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        }, {
+          img: '../img/2.jpg',
+          title: '孕期保持身材的七条黄金法则',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        },
+        {
+          img: '../img/3.jpg',
+          title: '你的孩子健康吗？',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        }, {
+          img: '../img/2.jpg',
+          title: '孕期保持身材的七条黄金法则',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        },
+        {
+          img: '../img/3.jpg',
+          title: '你的孩子健康吗？',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        }, {
+          img: '../img/2.jpg',
+          title: '孕期保持身材的七条黄金法则',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        },
+        {
+          img: '../img/3.jpg',
+          title: '你的孩子健康吗？',
+          time: '恭喜您报名成功',
+          date: '12月18日'
+        },
+        {
+          img: '../img/1.jpg',
+          title: '孕前用补钙和维生素吗？',
+          time: '于今晚 21:30 开课',
+          date: '12月18日'
+        }
+
+      ]
+    }
+
+    methods = {
+
+    }
+    events={
+      event2: () => {
+        console.log('我是父组件传递给子组件的事件');
+      }
+    }
+    onLoad () {
+
+    }
+}
+</script>

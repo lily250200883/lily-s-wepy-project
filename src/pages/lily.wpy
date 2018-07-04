@@ -1,0 +1,109 @@
+<style lang="less">
+  .container{
+    height: 100%;
+  }
+  .img{
+    background-size:cover;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+  .sc-view{
+    height: 932rpx;
+    display: flex;
+  }
+</style>
+
+<template>
+  <view class="container">
+    <nav></nav>
+
+    <navbar></navbar>
+
+    <scroll-view class="sc-view" scroll-y>
+
+      <view>
+        <image class="img" src="../img/1.jpg"></image>
+      </view>
+
+      <view>
+        <text>测试文档</text>
+      </view>
+
+      <panel>
+        <view class="title" slot="title">段落一</view>
+      </panel>
+
+      <view>
+        <button @tap="click('clicking')" size="mini">click me</button>
+      </view>
+
+      <btn>
+        <button>click me.....</button>
+      </btn>
+
+      <loading>
+        <button>clickfunction</button>
+      </loading>
+
+      <list></list>
+    </scroll-view>
+
+    <bottombar></bottombar>
+
+  </view>
+
+
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Panel from '../components/panel'
+  import lilyList from '../components/lily-list'
+  import Nav from '../components/nav'
+  import navBar from '../components/nav-bar'
+  import bottomBar from '../components/bottom-bar'
+  import Btn from '../components/btn'
+  import Loading from '../components/loading'
+
+  export default class Lily extends wepy.page {
+    config = {
+      navigationBarTitleText: '消息查看'
+    };
+    components = {
+      panel: Panel,
+      list: lilyList,
+      nav: Nav,
+      navbar: navBar,
+      bottombar: bottomBar,
+      btn: Btn,
+      loading: Loading
+    };
+    data = {};
+
+    computed = {};
+
+    methods = {
+      click(str) {
+        console.log(str)
+      },
+      clickfunc() {
+        this.requst()
+      }
+    };
+
+    events = {
+      event: () => {
+        console.log('我是子组件传递给父组件事件')
+      },
+      request: () => {
+        console.log('这是button请求的数据')
+      }
+    };// 组件事件
+
+    onLoad() {
+      this.$broadcast('event2')
+    }
+  }
+</script>

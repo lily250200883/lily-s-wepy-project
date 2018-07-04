@@ -1,0 +1,35 @@
+<style lang="less">
+
+</style>
+
+<template>
+    <view class="container">
+
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+import Loading from './btn'
+
+export default class Index extends wepy.component {
+    config = {
+      navigationBarTitleText: 'chuan'
+    };
+    components = {
+      loading: Loading
+    };
+
+    data = {};
+
+    computed = {};
+
+    methods = {
+    }
+    events = {};
+
+    onLoad() {
+      this.$invoke('./show-hide-loading', '',);
+    }
+  }
+</script>

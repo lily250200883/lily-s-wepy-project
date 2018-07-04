@@ -1,0 +1,77 @@
+<style lang="less">
+  .bottomBar{
+    height: 98rpx;
+    width: 750rpx;
+    font-size: 20rpx;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: space-around;
+  }
+  .b-box{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .b-img {
+    width: ~"50rpx";
+    height:~"50rpx";
+    margin-bottom: 13rpx;
+  }
+</style>
+
+<template>
+  <view scroll-x class="bottomBar">
+      <repeat class="box"
+              for="{{list}}"
+              key="index"
+              index="index"
+              item="item">
+        <view class="b-box">
+          <view  class="b-img">
+            <image src="{{item.img}}"></image>
+          </view>
+          <text>{{item.content}}</text>
+        </view>
+      </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class navBar extends wepy.page {
+    components = {};
+
+    data = {
+      list: [
+        {
+          img: '../img/1.jpg',
+          content: '发现'
+        },
+        {
+          img: '../img/2.jpg',
+          content: '会员卡'
+        },
+        {
+          img: '../img/3.jpg',
+          content: '活动'
+        }
+      ]
+    };
+
+    computed = {};
+
+    methods = {
+      onclick(e) {
+        // this.idx = e.currentTarget.dataset.id
+      }
+    };
+
+    events = {};
+
+    onLoad() {
+      this.$emit('event')
+    }
+  }
+</script>

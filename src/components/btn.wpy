@@ -1,0 +1,45 @@
+<style lang="less">
+
+</style>
+
+<template>
+    <view  @tap="clickfunc">
+      <slot></slot>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+export default class Btn extends wepy.component {
+    config = {
+      navigationBarTitleText: 'loading'
+    };
+    components = {
+    };
+
+    data = {
+      isclicked: false
+    };
+
+    computed = {};
+
+    methods = {
+      clickfunc: () => {
+        if (this.data.isclicked ===false) {
+          this.data.isclicked = true
+          setTimeout(() => {
+            this.$emit('request')
+            console.log('不允许重复点击')
+            this.data.isclicked = false
+          }, 2000)
+        }
+      }
+    };
+
+    events = {};
+
+    onLoad() {
+    }
+  }
+</script>
